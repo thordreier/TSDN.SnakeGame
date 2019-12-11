@@ -1,0 +1,134 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{00D6BF6F-4F48-42DB-B444-5C056B5BD3E9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TSDN.SnakeGame</RootNamespace>
+    <AssemblyName>TSDN.SnakeGame</AssemblyName>
+    <ManifestCertificateThumbprint>FAB7A06F6EFD91CB0038B4936083EEDCA25B3A4E</ManifestCertificateThumbprint>
+    <ManifestKeyFile>TSDN.SnakeGame_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>true</GenerateManifests>
+    <SignManifests>true</SignManifests>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Area.cs" />
+    <Compile Include="AreaColor.cs" />
+    <Compile Include="Coordinate.cs" />
+    <Compile Include="DirectionHelper.cs" />
+    <Compile Include="Enums\Direction.cs" />
+    <Compile Include="Enums\Elements.cs" />
+    <Compile Include="Enums\GameType.cs" />
+    <Compile Include="frmSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSetup.Designer.cs">
+      <DependentUpon>frmSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPlayGround.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPlayGround.Designer.cs">
+      <DependentUpon>frmPlayGround.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\IArea.cs" />
+    <Compile Include="Interfaces\ISnakeController.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmSetup.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPlayGround.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmPlayGround.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Snake.cs" />
+    <Compile Include="SnakeFood.cs" />
+    <Compile Include="SnakeGame.cs" />
+    <Compile Include="SnakeGameDraw.cs" />
+    <Compile Include="SnakeGameTCPPacketDirection.cs" />
+    <Compile Include="SnakeGameTCPPacketDraw.cs" />
+    <Compile Include="SnakeGameTCPPacketInit.cs" />
+    <Compile Include="SnakeGameTCPPacketInitResponse.cs" />
+    <Compile Include="SnakeGameTCPServer.cs" />
+    <Compile Include="SnakeGameTCPClient.cs" />
+    <Compile Include="SnakeGameTCPServerConnection.cs" />
+    <Compile Include="SnakeTCPController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
